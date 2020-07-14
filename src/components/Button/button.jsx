@@ -1,17 +1,15 @@
 import React from "react";
 
 const Button = (props) =>{
-    const click = () =>{
-        console.log("Click!")
-    }
+    console.log("Start component Button");
+
 
     return (<>
-            <button onClick={click}>
+            <button onClick={props.click}>
                 {props.name}
             </button>
         </>)
 }
-
 
 
 export default Button;

@@ -3,14 +3,14 @@ import './App.css';
 
 import Input from "./components/Input/input";
 import Button from "./components/Button/button";
-import {List} from "./components/Input/input";
+import List from "./components/List/list";
 
 function App() {
 
 
+
   return (<div>
             <Input/>
-            {/*<List/>*/}
 
          </div>
   )
