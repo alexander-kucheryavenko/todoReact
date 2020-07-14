@@ -1,32 +1,41 @@
 import React from "react";
-import Button from "../Button/button";
-import {render} from "react-dom";
-import List from "../List/list";
-import Button2 from "../Button/button";
 
-/*const List = (items = []) => {
-        console.log(items.length);
-        if (items.length > 0) {
-                return (
-                    <ul>
-                            {
-                                    items.map((el) =>
-                                        <li>{el.name}</li>
-                                    )
-                            }
-                    </ul>
-                )
-        } else {
-                return null
-        }
+var count = 0;
+const Input = (props) => {
 
-}*/
+    const {value, placeholder, handler} = props;
+
+    //console.log("com Input");
+
+    return (
+        <>
+            <input
+                value={value}
+                autoFocus = "true"
+                onChange={(event) => handler(event)}
+                placeholder={placeholder}/>
+        </>
+    )
+}
+export default Input;
 
 
 
 
 
-const _App = () => {
+
+
+
+
+
+
+
+
+
+
+
+
+/*const _App = () => {
 
     const [todos, setTodos] = React.useState([]);  //содержит в себе список todos
 
@@ -62,69 +71,7 @@ const _Input = (props) => {  //
             <input type="text"/>
         </div>
     )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const Input = () => {
-
-        const [listItem, setList] = React.useState([])
-
-
-        /*const addToList = () => {
-                console.log("addToList!");
-                console.log("list item = " + listItem);
-                /*let newList = list;
-                newList.push({id:0, name: "A_1", statusItem: 0})
-                setList(newList);
-                console.log(newList);
-        }*/
-
-        return(
-            <>
-
-                <input onKeyUp={(event) => {
-                    console.log(event.target.value);
-
-                    listItem.push(...listItem, text);
-                    console.log("list item = " + listItem);
-
-                }} placeholder='Add todo'/>
-
-                <button onClick = {(e) => {
-                        //addToList();
-                        // return (<List item = {list}/>)
-                }}>Add</button>
-
-
-                <List list = {listItem} />
-
-                </>
-        )
-
-}
-export default Input;
-
-
-
-
+}*/
 
 
 
