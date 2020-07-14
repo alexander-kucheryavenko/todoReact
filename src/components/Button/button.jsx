@@ -4,7 +4,7 @@ const Button = (props) =>{
 
     const {name, onClick} = props;
 
-    console.log("Start component Button");
+    //console.log("Start component Button");
 
 
     return (<>
