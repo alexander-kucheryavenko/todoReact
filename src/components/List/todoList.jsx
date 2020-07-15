@@ -1,9 +1,10 @@
 import React from "react";
 import Input from "../Input/input";
 import Checkbox from "../Checkbox/checkbox";
+import Button from "../Button/button";
 
 const TodoList = (props) => {
-    const {todoList, changeItemStatus} = props;
+    const {todoList, changeItemStatus, deleteItem} = props;
 
     const finishItem = todoList.map((el) =>
         <div>
@@ -13,6 +14,10 @@ const TodoList = (props) => {
                     onChange = {(check) => changeItemStatus(el, check)}
                 />
                 <label>{el.name}</label>
+                <Button
+                    onClick = {(click) => deleteItem(el.id)}
+                    name = "delele"
+                />
             </li>
         </div>
     )

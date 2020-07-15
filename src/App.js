@@ -14,7 +14,7 @@ function App() {
     const [stateButton, setStateButton] = React.useState('All');
     const [checkAll, setCheckAll] = React.useState(false);
 
-    const setTab = (e) => {   //установка текущего таба     //работает
+    const setTab = (e) => {   //установка текущего таба
         setStateButton(e);
     }
     const inputItem = (event) => setValue(event.target.value); //здесь хранятся значения из input
@@ -25,7 +25,19 @@ function App() {
         const newStatus = check.target.checked;
         const newTodoList = todos.map((el) => el.id === item.id ? {...el, status: newStatus} : el);
         setTodos(newTodoList);
+
+        console.log("Вызов метода countActive: ");
+        countActive(todos);
         // здесь будет изменение общего количества элементов (counter)
+    }
+
+
+    //счетчик для подчета колличества active item
+    const countActive = (list) => {
+        const arr = list.filter((el) => el.status !== true).length;
+        console.log('@@@@' , arr);
+
+
     }
 
     useEffect(() => {
@@ -42,6 +54,7 @@ function App() {
         } else setCheckAll(false);
     },[todos, checkAll] );
 
+
     //изменение статусов всех элементов
     const changeAllStatus = (check) => {
         const newStatus = check.target.checked;
@@ -56,11 +69,14 @@ function App() {
             setCheckAll(false);
         }
     }
+
+
     // метод возвращает лист todos в зависимости от текущего таба
     const getList = () => {
         return stateButton === 'Active' || stateButton === 'Completed'
             ? todos.filter(el => stateButton === 'Completed' ? el.status : !el.status) : todos;
     }
+
 
     // функция нажатия на Enter
     const handleKeyDown = (e) =>{
@@ -71,6 +87,7 @@ function App() {
             setValue('');
         }
     }
+
 
     // создание нового элемента для todos
     const addNewTodoTest = () => {
@@ -99,6 +116,11 @@ function App() {
         setTodos(arr);
     }
 
+    const deleteItem = (id) => {
+            const arr = todos.filter((el) => el.id !== id);
+            setTodos(arr);
+    }
+
 
   return (<div onKeyDown={handleKeyDown}>
           <header>
@@ -118,7 +140,7 @@ function App() {
               <TodoList
                   todoList = {getList()}
                   changeItemStatus = {changeItemStatus}
-
+                  deleteItem = {deleteItem}
               />
           </div>
 
