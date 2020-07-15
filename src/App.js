@@ -15,25 +15,7 @@ function App() {
     const [todos, setTodos] = React.useState([]);  //содержит в себе список todos первоначальный
     const [value, setValue] = React.useState('');  // хранит текущее значение input
     const [stateButton, setStateButton] = React.useState('All');
-    //const [todosFilter, setTodosFltr] = React.useState([]);
-
-    /*const filterList = () => {  //метод изменения вывода списка в  зависимости от таба (НЕ РАБОТАЕТ)
-
-        if(stateButton === 'Active'){
-            setTodosFltr([todos.filter(el => el.status === 'Active')]);  //заменить arr на массив todosFltr
-
-            for(let i = 0; i < todosFilter.length; i++){
-                console.log("TodosFilter listActive:  ID = " + todosFilter[i].id + " Name = " + todosFilter[i].name + " Status = " + todosFilter[i].status + " i = " + i);
-            }
-        }
-        if(stateButton === 'Completed'){
-            setTodosFltr([todos.filter(el => el.status === 'Completed')]);
-        }
-        if(stateButton === 'All'){
-            setTodosFltr([todos]);
-        }
-
-    }*/
+    const [checkAll, setCheckAll] = React.useState('false');
 
 
     const setTab = (e) => {   //установка текущего таба     //работает
@@ -42,14 +24,28 @@ function App() {
 
     const inputItem = (event) => setValue(event.target.value); //здесь хранятся значения из input
 
+    // изменение статуса выбранных элементов
+    const changeItemStatus = (item, check) => {
 
-    const changeItemStatus= (item, check) => {  //
 
         console.log(item.id + " " + item.name);
         const newStatus = check.target.checked;
         const newTodoList = todos.map((el) => el.id === item.id ? {...el, status: newStatus} : el);
         setTodos(newTodoList);
         // здесь будет изменение общего количества элементов (counter)
+    }
+
+    //изменение статусов всех элементов
+    const changeAllStatus = (check) => {
+        const newStatus = check.target.checked;
+
+        if(newStatus){  //если true, то ищем элементы false и меняем на true
+            const arr = todos.map(el => el.status !== true ? {...el, status: true} : el);
+            setTodos(arr);
+        }else {  //иначе, ищем элементы true и меняем на false
+            const arr = todos.map(el => el.status !== false ? {...el, status: false} : el);
+            setTodos(arr);
+        }
     }
 
 
@@ -100,18 +96,23 @@ function App() {
     }
 
 
+    //метод фильтрует список todos, присваивает выбранные элементы новому массиву и обновляет todos
     const bClear = () => {
-        // здесь будет метод для удаления всех элементов из списка со статусом true
-
-        const arr = todos.map(el => el.status !== false ? el.delete : el);   //проверить на работоспособность!!
-
+        const arr = todos.filter((el) => el.status !== true);
         setTodos(arr);
+
     }
+
+
+
 
 
   return (<div onKeyDown={handleKeyDown}>
           <header>
               <h1>Todos</h1>
+              <Checkbox
+                  onChange = {(check) => changeAllStatus(check)}
+              />
               <Input
                   placeHolder = "Add new item"
                   value = {value}
