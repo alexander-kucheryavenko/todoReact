@@ -3,6 +3,8 @@ import React from "react";
 var count = 0;
 const Input = (props) => {
 
+    //проверить работу события oninput()
+
     const {value, placeholder, handler} = props;
 
     //console.log("com Input");
@@ -11,7 +13,7 @@ const Input = (props) => {
         <>
             <input
                 value={value}
-                autoFocus = "true"
+                autoFocus = {true}
                 onChange={(event) => handler(event)}
                 placeholder={placeholder}/>
         </>

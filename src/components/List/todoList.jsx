@@ -5,38 +5,27 @@ import Checkbox from "../Checkbox/checkbox";
 
 const TodoList = (props) => {
 
-    const {todoList, state} = props;
+    const {todoList, changeItemStatus} = props;
+
+    /*for(let i = 0; i < todoList.length; i++){
+        console.log("TodoList: props:   ID = " + todoList[i].id + " Name = " + todoList[i].name + " Status = " + todoList[i].status + " i = " + i);
+    }*/
+
+    //console.log("TODOLIST:  Todolist toString: " + todoList);
 
     //console.log("Start TodoList");
 
-    let listItem = [];
 
-    if(state == 'all'|| state == ''){
-        listItem = todoList;
-    }
-
-    if(state == 'active'){
-        alert('TODO active');
-
-        todoList.map((el) => {
-            if(el.status == 0){
-                listItem.push(el);
-            }
-        });
-    }
-    if(state == 'completed'){
-        todoList.map((el) => {
-            if(el.status == 1){
-                listItem.push(el);
-            }
-        });
-    }
-
-
-    const finishItem = listItem.map((el) =>
+    const finishItem = todoList.map((el) =>
         <div>
-            <Checkbox />
-            <label>{el.name}</label>
+            <li key={el.id}>
+                <Checkbox
+                    checked = {el.status}
+                    onChange = {(check) => changeItemStatus(el, check)}
+                />
+                <label>{el.name}</label>
+            </li>
+
         </div>
     )
 

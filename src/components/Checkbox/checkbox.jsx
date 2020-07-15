@@ -1,8 +1,10 @@
 import React from "react";
 
 const Checkbox = (props) => {
+
+    const {checked, onChange} = props;
     return(
-        <input type='checkbox'/>
+        <input type='checkbox' checked={checked} onChange={onChange}/>
     )
 }
 export default Checkbox;
