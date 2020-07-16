@@ -1,43 +1,37 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 
 import TodoList from "./components/List/todoList";
 import Input from "./components/Input/input";
 import Button from "./components/Button/button";
 import Checkbox from "./checkbox2";
+import TestComponent from "./components/TestComponent/testComponent";
 
-var count = 1;
+
+var count = 1; // counter for id items
 
 function App() {
-    const [todos, setTodos] = React.useState([]);  //содержит в себе список todos первоначальный
-    const [value, setValue] = React.useState('');  // хранит текущее значение input
-    const [stateButton, setStateButton] = React.useState('All');
-    const [checkAll, setCheckAll] = React.useState(false);
+    const [todos, setTodos] = React.useState([]);  //list todo items
+    const [value, setValue] = React.useState('');  // values from input
+    const [currentTab, setTabs] = React.useState('All');  // current Tab
+    const [checkAll, setCheckAll] = React.useState(false);  // for checkbox (choose all)
 
-    const setTab = (e) => {   //установка текущего таба
-        setStateButton(e);
+    const container = useRef({all: 0, active: 0, done: 0});  // for item counter
+
+    // set current Tab
+    const setTab = (e) => {
+        setTabs(e);
     }
-    const inputItem = (event) => setValue(event.target.value); //здесь хранятся значения из input
 
-    // изменение статуса выбранных элементов
+    // values from input
+    const inputItem = (event) => setValue(event.target.value);
+
+    //change the status of selected items
     const changeItemStatus = (item, check) => {
-        console.log(item.id + " " + item.name);
         const newStatus = check.target.checked;
         const newTodoList = todos.map((el) => el.id === item.id ? {...el, status: newStatus} : el);
         setTodos(newTodoList);
-
-        console.log("Вызов метода countActive: ");
-        countActive(todos);
-        // здесь будет изменение общего количества элементов (counter)
-    }
-
-
-    //счетчик для подчета колличества active item
-    const countActive = (list) => {
-        const arr = list.filter((el) => el.status !== true).length;
-        console.log('@@@@' , arr);
-
-
+        counter(newTodoList);
     }
 
     useEffect(() => {
@@ -52,73 +46,88 @@ function App() {
                 setCheckAll(false)
             }
         } else setCheckAll(false);
-    },[todos, checkAll] );
 
+    },[todos, checkAll, value, container] );
 
-    //изменение статусов всех элементов
+    const counter = (arr) => {
+        const all = arr.length;
+        const active = arr.filter(el => !el.status).length;
+        const completed = arr.filter(el => el.status).length;
+
+        container.current.all = all;
+        container.current.active = active;
+        container.current.done = completed;
+    }
+
+    // change the statuses of all elements
     const changeAllStatus = (check) => {
         const newStatus = check.target.checked;
+        let arr = [];
+
         if(newStatus){  //если true, то ищем элементы false и меняем на true
-            console.log(todos);
-            const arr = todos.map(el => el.status !== true ? {...el, status: true} : el);
+            arr = todos.map(el => el.status !== true ? {...el, status: true} : el);
             setTodos(arr);
             setCheckAll(true);
         }else {  //иначе, ищем элементы true и меняем на false
-            const arr = todos.map(el => el.status !== false ? {...el, status: false} : el);
+            arr = todos.map(el => el.status !== false ? {...el, status: false} : el);
             setTodos(arr);
             setCheckAll(false);
         }
+        counter(arr);
     }
-
 
     // метод возвращает лист todos в зависимости от текущего таба
+    // the function returns a list depending on the current tab
     const getList = () => {
-        return stateButton === 'Active' || stateButton === 'Completed'
-            ? todos.filter(el => stateButton === 'Completed' ? el.status : !el.status) : todos;
+        return currentTab === 'Active' || currentTab === 'Completed'
+            ? todos.filter(el => currentTab === 'Completed' ? el.status : !el.status) : todos;
     }
 
 
-    // функция нажатия на Enter
+    // click handling 'enter'
     const handleKeyDown = (e) =>{
-
         if(e.key === 'Enter'){
             addNewTodoTest();  //создание нового элемента
-            //filterList();   //
             setValue('');
         }
     }
 
 
-    // создание нового элемента для todos
+    // create new todo items
     const addNewTodoTest = () => {
         if(value.trim() !== ''){
-            setTodos([...todos, {id: count, name: value, status: false}]);
+            const arr = [...todos, {id: count, name: value, status: false}];
+            setTodos([...todos, arr])
+
+            setTodos(arr);
             count++;
+            counter(arr);
         }else return;
     }
 
-    // обработка нажатия кнопок установления табов
+    // set Tabs on buttons
     const bAllOnClick = () => {
        setTab('All');
     }
-
     const bActiveOnClick = () => {
         setTab('Active');
     }
-
     const bCompletedOnClick = () => {
         setTab('Completed');
     }
 
-    //метод фильтрует список todos, присваивает выбранные элементы новому массиву и обновляет todos
+    //remove all items
     const bClear = () => {
         const arr = todos.filter((el) => el.status !== true);
         setTodos(arr);
+        counter(arr);
     }
 
+    // remove one item
     const deleteItem = (id) => {
             const arr = todos.filter((el) => el.id !== id);
             setTodos(arr);
+            counter(arr);
     }
 
 
@@ -144,6 +153,13 @@ function App() {
               />
           </div>
 
+          <div>
+              <TestComponent
+                all = {container.current.all}
+                active = {container.current.active}
+                done = {container.current.done}
+              />
+          </div>
 
            <footer>
                <Button
