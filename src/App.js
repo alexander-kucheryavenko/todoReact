@@ -5,7 +5,7 @@ import TodoList from "./components/List/todoList";
 import Input from "./components/Input/input";
 import Button from "./components/Button/button";
 import Checkbox from "./checkbox2";
-import TestComponent from "./components/TestComponent/testComponent";
+
 
 
 var count = 1; // counter for id items
@@ -142,7 +142,6 @@ function App() {
                   placeHolder = "Add new item"
                   value = {value}
                   handler={inputItem}/>
-
           </header>
 
           <div>
@@ -153,27 +152,28 @@ function App() {
               />
           </div>
 
-          <div>
-              <TestComponent
-                all = {container.current.all}
-                active = {container.current.active}
-                done = {container.current.done}
-              />
-          </div>
-
            <footer>
-               <Button
-                   name = "All"
-                   onClick = {bAllOnClick}/>
-               <Button
-                   name = "Active"
-                   onClick = {bActiveOnClick}/>
-               <Button
-                   name = "Completed"
-                   onClick = {bCompletedOnClick}/>
-               <Button
-                   name = "Clear components"
-                   onClick = {bClear}/>
+               <ul>
+                   <li>
+                       <Button
+                           name = {"All " + container.current.all}
+                           onClick = {bAllOnClick}
+                        />
+                       <Button
+                           name = {"Active " + container.current.active}
+                           onClick = {bActiveOnClick}
+                          />
+                       <Button
+                           name = {"Completed " + container.current.done}
+                           onClick = {bCompletedOnClick}
+                          />
+                       <Button
+                           name = "Clear components"
+                           onClick = {bClear}/>
+                   </li>
+
+               </ul>
+
            </footer>
          </div>
   )
