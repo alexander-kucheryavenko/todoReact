@@ -1,11 +1,15 @@
 import React from "react";
+import "../../App.css"
 
 const Button = (props) =>{
 
-    const {name, onClick, counter} = props;
+    const {name, onClick, className} = props;
 
     return (<>
-            <button onClick={onClick}>
+            <button
+                className={className}
+                onClick={onClick}
+            >
                 {name}
             </button>
         </>)

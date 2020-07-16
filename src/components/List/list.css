@@ -1,0 +1,40 @@
+.main {
+    position: relative;
+    border-top: 1px solid #e6e6e6;
+}
+
+.todo-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.destroy {
+    padding: 0;
+    border: 0;
+    background: none;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    -webkit-appearance: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.todo-list li .destroy:hover {
+    color: #af5b5e;
+}
+.toggle {
+
+}
+
+
+.todo-li {
+    display: flex;
+
+    height: 50px;
+}
+
+.todo-title {
+    padding-left: 50px;
+    align-items: center;
+    display: flex;
+}

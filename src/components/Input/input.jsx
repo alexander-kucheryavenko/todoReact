@@ -1,17 +1,19 @@
 import React from "react";
+import "../../App.css"
 
 var count = 0;
 const Input = (props) => {
 
     //проверить работу события oninput()
 
-    const {value, placeholder, handler} = props;
+    const {value, placeholder, handler, className} = props;
 
     //console.log("com Input");
 
     return (
         <>
             <input
+                className={className}
                 value={value}
                 autoFocus = {true}
                 onChange={(event) => handler(event)}
