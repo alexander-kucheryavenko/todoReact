@@ -19,11 +19,29 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.todo-list li .destroy:hover {
-    color: #af5b5e;
+/*.todo-list li .destroy:hover {*/
+/*    color: #af5b5e;*/
+/*}*/
+.todo-list li .destroy:after {
+    content: '×';
 }
 .toggle {
 
+}
+
+.todo-list li .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 11px;
+    transition: color 0.2s ease-out;
 }
 
 
@@ -31,10 +49,55 @@
     display: flex;
 
     height: 50px;
+    align-items: center;
 }
 
 .todo-title {
     padding-left: 50px;
     align-items: center;
     display: flex;
+}
+
+
+
+.todo-li .destroy {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    margin: auto 0;
+    font-size: 30px;
+    color: #cc9a9a;
+    margin-bottom: 5px;
+    transition: color 0.2s ease-out;
+}
+.destroy {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.destroy:active, .destroy:focus{
+    outline: none;
+}
+.todo-li .destroy:hover {
+    color: #af5b5e;
+}
+.todo-li .destroy:after {
+    content: "×";
+}
+.todo-li:hover .destroy {
+    display: block;
 }

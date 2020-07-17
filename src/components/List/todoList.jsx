@@ -23,7 +23,7 @@ const TodoList = (props) => {
                         <Button
                             className = "destroy"
                             onClick = {(click) => deleteItem(el.id)}
-                            name = "x"
+                            name = ""
                         />
                     </li>
                 )}
