@@ -164,25 +164,31 @@ function App() {
 
 
                       <footer class="footer">
-                          <ul className="filters">
-                              <li>
-                                  <Button
-                                      name = {"All " + container.current.all}
-                                      onClick = {bAllOnClick}
-                                  />
-                                  <Button
-                                      name = {"Active " + container.current.active}
-                                      onClick = {bActiveOnClick}
-                                  />
-                                  <Button
-                                      name = {"Completed " + container.current.done}
-                                      onClick = {bCompletedOnClick}
-                                  />
-                                  <Button
-                                      name = "Clear components"
-                                      onClick = {bClear}/>
-                              </li>
-                          </ul>
+                          <div>
+                              <ul className="filters">
+                                  <li>
+                                      <Button
+                                          name = {"All " + container.current.all}
+                                          onClick = {bAllOnClick}
+                                      />
+                                      <Button
+                                          name = {"Active " + container.current.active}
+                                          onClick = {bActiveOnClick}
+                                      />
+                                      <Button
+                                          name = {"Completed " + container.current.done}
+                                          onClick = {bCompletedOnClick}
+                                      />
+                                      <li className="clear-comp">
+                                          <Button
+                                              name = "Clear components"
+                                              onClick = {bClear}/>
+                                      </li>
+
+                                  </li>
+                              </ul>
+                          </div>
+
                       </footer>
                     </ul>
               </section>
