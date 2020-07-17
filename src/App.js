@@ -134,9 +134,10 @@ function App() {
   return (
       <section class="todoapp" onKeyDown={handleKeyDown}>
           <div>
-              <header>
-                  <h1>Todos</h1>
+              <header className="head">
 
+                  <h1>Todos</h1>
+                  <div className="divHead">
                       <Checkbox
                           className="toggle"
                           checked={checkAll}
@@ -144,9 +145,11 @@ function App() {
                       />
                       <Input
                           className = "new-todo"
-                          placeHolder = "Add new item"
+                          placeHolder = "What needs to be done?"
                           value = {value}
                           handler={inputItem}/>
+                  </div>
+
               </header>
 
               <section class="main">
@@ -161,24 +164,20 @@ function App() {
 
 
                       <footer class="footer">
-                          <ul>
+                          <ul className="filters">
                               <li>
                                   <Button
                                       name = {"All " + container.current.all}
                                       onClick = {bAllOnClick}
                                   />
-
-
                                   <Button
                                       name = {"Active " + container.current.active}
                                       onClick = {bActiveOnClick}
                                   />
-
                                   <Button
                                       name = {"Completed " + container.current.done}
                                       onClick = {bCompletedOnClick}
                                   />
-
                                   <Button
                                       name = "Clear components"
                                       onClick = {bClear}/>

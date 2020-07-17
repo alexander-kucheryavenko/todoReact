@@ -6,7 +6,7 @@ const Input = (props) => {
 
     //проверить работу события oninput()
 
-    const {value, placeholder, handler, className} = props;
+    const {value, placeHolder, handler, className} = props;
 
     //console.log("com Input");
 
@@ -17,7 +17,7 @@ const Input = (props) => {
                 value={value}
                 autoFocus = {true}
                 onChange={(event) => handler(event)}
-                placeholder={placeholder}/>
+                placeholder={placeHolder}/>
         </>
     )
 }
