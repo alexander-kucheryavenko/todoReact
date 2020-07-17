@@ -7,7 +7,6 @@ import Button from "./components/Button/button";
 import Checkbox from "./components/Checkbox/checkbox";
 
 
-
 var count = 1; // counter for id items
 
 function App() {
@@ -149,7 +148,6 @@ function App() {
                           value = {value}
                           handler={inputItem}/>
                   </div>
-
               </header>
 
               <section class="main">
@@ -161,8 +159,6 @@ function App() {
                             deleteItem = {deleteItem}
                         />
                     </li >
-
-
                       <footer class="footer">
                           <div>
                               <ul className="filters">
@@ -184,7 +180,6 @@ function App() {
                                               name = "Clear components"
                                               onClick = {bClear}/>
                                       </li>
-
                                   </li>
                               </ul>
                           </div>

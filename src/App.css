@@ -15,11 +15,9 @@
   box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
-
 input::-moz-placeholder { color: lightgray; }
 input::-webkit-input-placeholder { color: lightgray; }
 input::-webkit-input-placeholder { font-style: italic }
-
 
 
 .new-todo, .edit {
