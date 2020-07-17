@@ -4,7 +4,7 @@ import './App.css';
 import TodoList from "./components/List/todoList";
 import Input from "./components/Input/input";
 import Button from "./components/Button/button";
-import Checkbox from "./checkbox2";
+import Checkbox from "./components/Checkbox/checkbox";
 
 
 
