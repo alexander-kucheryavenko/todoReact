@@ -14,6 +14,11 @@ README.md
 package-lock.json
 package.json
 
+/src/app2.css
+/src/app2.jsx
+/src/list2.css
+/src/list2.jsx
+debug.log
 
 # production
 /build

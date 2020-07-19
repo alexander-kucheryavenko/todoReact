@@ -128,6 +128,9 @@ function App() {
             setTodos(arr);
             counter(arr);
     }
+    /*const editItem = () => {
+        alert("doubleClick! ");
+    }*/
 
 
   return (
@@ -145,8 +148,10 @@ function App() {
                       <Input
                           className = "new-todo"
                           placeHolder = "What needs to be done?"
+                          autoFocus = {true}
                           value = {value}
-                          handler={inputItem}/>
+                          handler={inputItem}
+                      />
                   </div>
               </header>
 
@@ -157,6 +162,7 @@ function App() {
                             todoList = {getList()}
                             changeItemStatus = {changeItemStatus}
                             deleteItem = {deleteItem}
+                            //editItem = {editItem}
                         />
                     </li >
                       <footer class="footer">
