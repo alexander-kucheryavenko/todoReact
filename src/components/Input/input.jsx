@@ -6,10 +6,13 @@ const Input = (props) => {
 
     //проверить работу события oninput()
 
-    const {value, placeHolder, handler, className, autoFocus, readOnly,doubleClick } = props;
+    const {value, placeHolder, handler, className, autoFocus, readOnly,doubleClick, el} = props;
+
+    const _doubleClick = () => {
+        doubleClick(el)
+    }
 
     //console.log("com Input");
-
     return (
         <>
             <input
@@ -19,7 +22,7 @@ const Input = (props) => {
                 onChange={(event) => handler(event)}
                 placeholder={placeHolder}
                 readOnly={readOnly}
-                onDoubleClick={(event) => doubleClick(event)}
+                onDoubleClick={_doubleClick}
             />
         </>
     )

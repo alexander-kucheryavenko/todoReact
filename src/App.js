@@ -15,6 +15,9 @@ function App() {
     const [currentTab, setTabs] = React.useState('All');  // current Tab
     const [checkAll, setCheckAll] = React.useState(false);  // for checkbox (choose all)
 
+    const [readOnly, setReadOnly] = React.useState(true); // for todolist component
+    const [newValue, setNewValue] = React.useState('');  // values from input
+
     const container = useRef({all: 0, active: 0, done: 0});  // for item counter
 
     // set current Tab
@@ -128,9 +131,23 @@ function App() {
             setTodos(arr);
             counter(arr);
     }
-    /*const editItem = () => {
-        alert("doubleClick! ");
+
+    const updateTodos = (el, value) => {
+        console.log('todoList: updateTodos: el = ' + el.name + '@@ value = ' + value);
+        const arr = todos.map(element => element.id === el.id ? {...el, name: value} : element);
+
+        console.log('arr ====== ' +  arr);
+        setTodos(arr);
+    }
+
+
+    /*const saveNewInput = () => {
+        console.log('@@@@@@@@@ save newInput');
+
+        const arr = todos.map(el)
+
     }*/
+
 
 
   return (
@@ -157,12 +174,14 @@ function App() {
 
               <section class="main">
                   <ul class="todo-list">
-                    <li >
+                    <li>
                         <TodoList
                             todoList = {getList()}
                             changeItemStatus = {changeItemStatus}
                             deleteItem = {deleteItem}
-                            //editItem = {editItem}
+                            handler = {updateTodos}
+                            setValue = {setTodos}
+
                         />
                     </li >
                       <footer class="footer">

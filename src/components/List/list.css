@@ -1,7 +1,3 @@
-.main {
-    position: relative;
-    border-top: 1px solid #e6e6e6;
-}
 
 .todo-list {
     margin: 0;
@@ -55,6 +51,9 @@
     height: 50px;
     align-items: center;
 }
+.todo-li div {
+
+}
 
 .todo-title {
     padding-left: 50px;
@@ -104,4 +103,9 @@
 }
 .todo-li:hover .destroy {
     display: block;
+}
+.input-todo-item {
+    border: none;
+    font-size: 18px;
+
 }

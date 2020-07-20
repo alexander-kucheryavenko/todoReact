@@ -4,36 +4,18 @@ import Checkbox from "../Checkbox/checkbox";
 import Button from "../Button/button";
 //import "../../App.css"
 import "./list.css"
+import TodoItem from "../TodoItem/todoItem";
 
 
 const TodoList = (props) => {
-    const {todoList, changeItemStatus, deleteItem, editItem} = props;
+    const {todoList, changeItemStatus, deleteItem, handler, setValue} = props;
+    /*const updateTodos = (el, value) => {
+        console.log('todoList: updateTodos: el = ' + el.name + '@@ value = ' + value);
+        const arr = todoList.map(element => element.id === el.id ? el.name = value : element);
 
-    const [readOnlyState, setReadOnly] = React.useState(true);
-    const [values, setValue] = React.useState('');
-
-    const editItem2 = (event, id) => {
-        console.log("double click");
-        console.log(readOnlyState);
-        setReadOnly(!readOnlyState);
-
-
-    }
-    const alert2 = (event, id) => {
-
-        const str = event.target.value;
-        console.log("alert2: " + str);
-        setValue(str);
-
-        console.log('values: ' + 'id: ' + id);
-
-        if(event.key === 'Enter'){
-            console.log("ooooooooo")
-
-        }
-        //todoList.map((el) => el.id === id ? el.name = values : el);
-    }
-
+        console.log('arr ====== ' +  arr);
+        setValue(arr);
+    }*/
     return(
         <div class="view">
             <ul className = "todo-list">
@@ -46,17 +28,24 @@ const TodoList = (props) => {
                                 checked={el.status}
                                 onChange={(check) => changeItemStatus(el, check)}
                             />
-
+                            <TodoItem
+                                className = "input-todo-item"
+                                el={el}
+                                handler={handler}
+                            />
+{/*
                             <span className="spanTodoName">{el.name}</span>
 
                             <Input
+
                                 className="item"
                                 value={el.name}
                                 autoFocus={false}
-                                readOnly={readOnlyState}
-                                handler={(event) => alert2(event, el.id)}
-                                doubleClick={(ondblclick) => editItem2(ondblclick, el.id)}
+                                readOnly={readOnly}
+
+                                doubleClick={(event) => doubleClick(event)}
                             />
+*/}
                         </div>
 
                         <Button
@@ -70,9 +59,59 @@ const TodoList = (props) => {
 
         </div>
 
-
-
-
     );
 }
+
+/*
+const TodoItem = ({el, handler}) => {
+
+    const [readOnly, setReadOnly] = useState(true);
+    const [itemName, setItemName] = useState(el.name);
+
+    const toggleReadOnly = () => {
+        setReadOnly(!readOnly);
+    }
+
+
+    const handleOnChange = evt => {
+        const {value} = evt.target;
+
+        setItemName(value);
+    }
+
+    const onBlurHandler = () => {
+        handler(itemName, el.id);
+        toggleReadOnly();
+    }
+
+    const keyDownHandler = evt => {
+        switch(evt.which) {
+            case 13:
+                handler(itemName, el.id);
+                toggleReadOnly();
+                console.log('@@@@@@@@@ enter click');
+                break;
+            case 27:
+                setItemName(el.name);
+                toggleReadOnly();
+                console.log('@@@@@@@@@ esc click');
+                break;
+            default:
+                break;
+        }
+    }
+
+    return (
+        <input
+            type="text"
+            readOnly={readOnly}
+            onDoubleClick={toggleReadOnly}
+            value={itemName}
+            onChange={handleOnChange}
+            onBlur={onBlurHandler}
+            onKeyDown={keyDownHandler}
+        />
+    )
+}
+*/
 export default TodoList;

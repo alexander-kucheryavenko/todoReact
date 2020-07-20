@@ -53,9 +53,7 @@ input::-webkit-input-placeholder { font-style: italic }
   -moz-text-rendering: optimizeLegibility;
   text-rendering: optimizeLegibility;
 }
-section {
-  display: block;
-}
+
 body {
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.4em;
