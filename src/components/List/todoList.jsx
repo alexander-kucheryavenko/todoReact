@@ -29,7 +29,7 @@ const TodoList = (props) => {
                                 onChange={(check) => changeItemStatus(el, check)}
                             />
                             <TodoItem
-                                className = "input-todo-item"
+
                                 el={el}
                                 handler={handler}
                             />

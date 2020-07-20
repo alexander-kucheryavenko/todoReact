@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 const TodoItem = (props) => {
-    const {className, handler, el, key} = props;
+    const {handler, el} = props;
 
     const [readOnly, setReadOnly] = useState(true);
     const [value, setValue] = useState(el.name);
@@ -47,8 +47,7 @@ const TodoItem = (props) => {
     return (
         <input
             type="text"
-            // key={key}
-            className={className}
+            className={ !readOnly ? 'input-todo-item-edit' : 'input-todo-item'}
             value={value}
             onDoubleClick={doubleClick}
             readOnly={readOnly}
