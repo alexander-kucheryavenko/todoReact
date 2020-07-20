@@ -173,44 +173,42 @@ function App() {
               </header>
 
               <section class="main">
-                  <ul class="todo-list">
-                    <li>
-                        <TodoList
-                            todoList = {getList()}
-                            changeItemStatus = {changeItemStatus}
-                            deleteItem = {deleteItem}
-                            handler = {updateTodos}
-                            setValue = {setTodos}
 
-                        />
-                    </li >
-                      <footer class="footer">
-                          <div>
-                              <ul className="filters">
-                                  <li>
+                <TodoList
+                    todoList = {getList()}
+                    changeItemStatus = {changeItemStatus}
+                    deleteItem = {deleteItem}
+                    handler = {updateTodos}
+                    setValue = {setTodos}
+                />
+
+                <footer class="footer">
+                      <div>
+                          <ul className="filters">
+                              <li>
+                                  <Button
+                                      name = {"All " + container.current.all}
+                                      onClick = {bAllOnClick}
+                                  />
+                                  <Button
+                                      name = {"Active " + container.current.active}
+                                      onClick = {bActiveOnClick}
+                                  />
+                                  <Button
+                                      name = {"Completed " + container.current.done}
+                                      onClick = {bCompletedOnClick}
+                                  />
+                                  <li className="clear-comp">
                                       <Button
-                                          name = {"All " + container.current.all}
-                                          onClick = {bAllOnClick}
-                                      />
-                                      <Button
-                                          name = {"Active " + container.current.active}
-                                          onClick = {bActiveOnClick}
-                                      />
-                                      <Button
-                                          name = {"Completed " + container.current.done}
-                                          onClick = {bCompletedOnClick}
-                                      />
-                                      <li className="clear-comp">
-                                          <Button
-                                              name = "Clear components"
-                                              onClick = {bClear}/>
-                                      </li>
+                                          name = "Clear components"
+                                          onClick = {bClear}/>
                                   </li>
-                              </ul>
-                          </div>
+                              </li>
+                          </ul>
+                      </div>
 
-                      </footer>
-                    </ul>
+                  </footer>
+
               </section>
           </div>
       </section>

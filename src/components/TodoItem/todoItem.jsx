@@ -5,16 +5,18 @@ const TodoItem = (props) => {
 
     const [readOnly, setReadOnly] = useState(true);
     const [value, setValue] = useState(el.name);
+    const [focus, setFocus] = useState(false);
+
 
 
     const handlerKeyDown = (evt) => {
         switch (evt.which) {
             case 13:
-                console.log('key down Enter')
+               // console.log('key down Enter')
                 blurHandler();
                 break;
             case 27 :
-                console.log('key down Esc')
+               // console.log('key down Esc')
                 setValue(el.name);  // возвращает имя в первоначальное состояние
                 break;
             default:
@@ -27,16 +29,18 @@ const TodoItem = (props) => {
     }
 
     const blurHandler = () => {
-        console.log('blurHandler')
+        //console.log('blurHandler')
         setReadOnly(!readOnly);
         handler(el, value);
+
+
     }
     const handlerChange = (evt) => {
-        console.log('handlerChange')
+        //console.log('handlerChange')
 
         const str = evt.target.value;
         setValue([str]);
-        console.log('@@@@@@@@@ ' + str);
+        //console.log('@@@@@@@@@ ' + str);
 
     }
 

@@ -17,12 +17,12 @@ const TodoList = (props) => {
         setValue(arr);
     }*/
     return(
-        <div class="view">
+        <>
             <ul className = "todo-list">
                 {todoList.map((el) =>
 
                     <li className="todo-li" key={el.id}>
-                        <div>
+                        <div className="div-todo-item">
                             <Checkbox
                                 className="toggle"
                                 checked={el.status}
@@ -57,7 +57,7 @@ const TodoList = (props) => {
                     )}
             </ul>
 
-        </div>
+        </>
 
     );
 }
