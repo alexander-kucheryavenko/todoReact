@@ -25,7 +25,6 @@ input::-webkit-input-placeholder { font-style: italic }
   margin: 3px;
   width: 85%;
   left: 0px;
-
   font-size: 24px;
   font-family: inherit;
   font-weight: inherit;
@@ -34,8 +33,6 @@ input::-webkit-input-placeholder { font-style: italic }
   outline: none;
   color: inherit;
   padding: 6px;
-
-
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -66,26 +63,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
 }
+
 .main {
-
   border-top: 1px solid #e6e6e6;
-}
-
-ul {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-}
-.todo-list li {
-
-  align-items: center;
-  position: relative;
-  font-size: 24px;
-  border-bottom: 1px solid #ededed;
 }
 
 
@@ -101,26 +81,10 @@ ul {
 
 }
 input {
-  -webkit-writing-mode: horizontal-tb !important;
-  text-rendering: auto;
-
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: start;
-  -webkit-appearance: textfield;
-
   -webkit-rtl-ordering: logical;
   cursor: text;
   margin: 0em;
   font: 400 13.3333px Arial;
-  padding: 1px 2px;
-  border-width: 2px;
-  border-style: inset;
-  border-image: initial;
 }
 
 .todo-list li .destroy {
