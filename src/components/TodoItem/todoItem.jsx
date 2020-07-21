@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const TodoItem = (props) => {
     const {handler, el} = props;
@@ -7,6 +7,10 @@ const TodoItem = (props) => {
     const [value, setValue] = useState(el.name);
     const [focus, setFocus] = useState(false);
 
+    useEffect(() => {
+        console.log('@@@@@    ' + readOnly)
+        }, [readOnly]
+    )
 
 
     const handlerKeyDown = (evt) => {
@@ -30,7 +34,10 @@ const TodoItem = (props) => {
 
     const blurHandler = () => {
         //console.log('blurHandler')
-        setReadOnly(!readOnly);
+        if(!readOnly){
+            setReadOnly(!readOnly);
+        }
+
         handler(el, value);
 
 

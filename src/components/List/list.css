@@ -10,12 +10,47 @@
 /*}*/
 
 
-.todo-list li .destroy:after {
-    content: '×';
-}
 
 .toggle {
     width: 60px;
+    margin: auto 0;
+}
+
+/*.toggle:checked {
+    width: 60px;
+    margin: auto 0;
+}*/
+
+
+.toggle:checked + .input-todo-item {
+    color: #d9d9d9;
+    text-decoration: line-through;
+}
+
+.todo-list li div .toggle:checked + input{
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23bddad5%22%20stroke-width%3D%223%22/%3E%3Cpath%20fill%3D%22%235dc2af%22%20d%3D%22M72%2025L42%2071%2027%2056l-4%204%2020%2020%2034-52z%22/%3E%3C/svg%3E");
+}
+.todo-list li div  .toggle + input{
+    width: 60px;
+    margin: auto 0;
+    background-image: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%22-10%20-18%20100%20135%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2250%22%20fill%3D%22none%22%20stroke%3D%22%23ededed%22%20stroke-width%3D%223%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center left;
+}
+.destroy {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: 100%;
+    vertical-align: baseline;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+    -webkit-appearance: none;
+    appearance: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .todo-list li .destroy {
@@ -31,6 +66,9 @@
     color: #cc9a9a;
     margin-bottom: 11px;
     transition: color 0.2s ease-out;
+}
+.todo-list li .destroy:after {
+    content: '×';
 }
 
 .todo-li {
@@ -49,27 +87,7 @@
 }
 
 
-.todo-title {
-    padding-left: 50px;
-    align-items: center;
-    display: flex;
-}
 
-.destroy {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    font-size: 100%;
-    vertical-align: baseline;
-    font-family: inherit;
-    font-weight: inherit;
-    color: inherit;
-    -webkit-appearance: none;
-    appearance: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 .destroy:active, .destroy:focus{
     outline: none;
 }
@@ -82,20 +100,23 @@
 .todo-li:hover .destroy {
     display: block;
 }
+
+
 .input-todo-item{
     width: 85%;
+    padding-left: 10px;
     outline: none;
     border: none;
     font-size: 24px;
 }
 .input-todo-item-edit {
     width: 85%;
+    padding-left: 10px;
     color: dimgrey;
     outline: 1px solid black;
     border: none;
     font-size: 24px;
 }
-
 
 
 

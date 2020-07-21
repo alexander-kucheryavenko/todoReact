@@ -28,8 +28,7 @@ const TodoList = (props) => {
                                 checked={el.status}
                                 onChange={(check) => changeItemStatus(el, check)}
                             />
-                            <TodoItem
-
+                            <TodoItem   
                                 el={el}
                                 handler={handler}
                             />
