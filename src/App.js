@@ -143,7 +143,6 @@ function App() {
       <section class="todoapp" onKeyDown={handleKeyDown}>
           <div>
               <header className="head">
-
                   <h1>Todos</h1>
                   <div className="divHead">
                       <Checkbox
@@ -162,6 +161,7 @@ function App() {
                           value = {value}
                           handler={inputItem}
                       />
+
                   </div>
               </header>
 
