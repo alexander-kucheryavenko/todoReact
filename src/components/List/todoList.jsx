@@ -15,14 +15,14 @@ const TodoList = (props) => {
             <ul className = "todo-list">
                 {todoList.map((el) =>
                     <li className="todo-li" key={el.id}>
-                        <label className="todo-label">
+                        {/*<label className="todo-label">*/}
                             <Checkbox
                                 className="toggle"
                                 checked={el.status}
                                 onChange={(check) => changeItemStatus(el, check)}
                             />
                             <span className="todo-span"></span>
-                        </label>
+                        {/*</label>*/}
                         <TodoItem
                             el={el}
                             handler={handler}
@@ -33,13 +33,10 @@ const TodoList = (props) => {
                             onClick={(click) => deleteItem(el.id)}
                             name=""
                         />
-
                     </li>
                     )}
             </ul>
-
         </>
-
     );
 }
 

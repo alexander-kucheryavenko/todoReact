@@ -14,7 +14,12 @@
   align-items: center;
   box-shadow: inset 0px -2px 1px 0px rgba(0, 0, 0, 0.2);
 }
-
+.toggle-all {
+  content: "❯";
+  font-size: 22px;
+  color: #4d4d4d;
+  width: 40px;
+}
 
 input::-moz-placeholder { color: lightgray; }
 input::-webkit-input-placeholder { color: lightgray; }
@@ -25,7 +30,7 @@ input::-webkit-input-placeholder { font-style: italic }
   position: relative;
   margin: 3px;
   width: 85%;
-  left: 0px;
+  left: 15px;
   font-size: 24px;
   font-family: inherit;
   font-weight: inherit;
@@ -60,6 +65,7 @@ body {
   min-width: 230px;
   max-width: 550px;
   margin: 0 auto;
+  outline: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;

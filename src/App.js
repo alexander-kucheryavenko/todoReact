@@ -85,7 +85,6 @@ function App() {
             ? todos.filter(el => currentTab === 'Completed' ? el.status : !el.status) : todos;
     }
 
-
     // click handling 'enter'
     const handleKeyDown = (e) =>{
         if(e.key === 'Enter'){
@@ -140,16 +139,6 @@ function App() {
         setTodos(arr);
     }
 
-
-    /*const saveNewInput = () => {
-        console.log('@@@@@@@@@ save newInput');
-
-        const arr = todos.map(el)
-
-    }*/
-
-
-
   return (
       <section class="todoapp" onKeyDown={handleKeyDown}>
           <div>
@@ -158,10 +147,14 @@ function App() {
                   <h1>Todos</h1>
                   <div className="divHead">
                       <Checkbox
-                          className="toggle"
+                          id = "toggle-all"
+                          className="toggle-all"
                           checked={checkAll}
                           onChange = {(check) => changeAllStatus(check)}
                       />
+                      <label for = "toggle-all">
+
+                      </label>
                       <Input
                           className = "new-todo"
                           placeHolder = "What needs to be done?"
@@ -202,6 +195,9 @@ function App() {
                                           name = "Clear components"
                                           onClick = {bClear}/>
                                   </li>
+
+
+
                               </li>
                           </ul>
                       </div>
