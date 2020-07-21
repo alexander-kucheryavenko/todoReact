@@ -119,6 +119,7 @@ function App() {
 
     //remove all items
     const bClear = () => {
+
         const arr = todos.filter((el) => el.status !== true);
         setTodos(arr);
         counter(arr);
@@ -175,7 +176,7 @@ function App() {
                 />
 
                 <footer className="footer">
-                      <div>
+                      <div className="div-bottom">
                           <ul className="filters">
                               <li>
                                   <Button
@@ -191,15 +192,15 @@ function App() {
                                       onClick = {bCompletedOnClick}
                                   />
 
-                                  <div className="clear-comp">
-                                      <Button
-                                          name = "Clear components"
-                                          onClick = {bClear}/>
-                                  </div>
-
-
-
                               </li>
+                                <li className="l2">
+                                    <Button
+                                        className = "b_clear"
+                                        name = "Clear completed"
+                                        onClick = {bClear}
+                                    />
+                                </li>
+
                           </ul>
                       </div>
 
@@ -207,6 +208,7 @@ function App() {
 
               </section>
           </div>
+
       </section>
   )
 }

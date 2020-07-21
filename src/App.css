@@ -107,17 +107,18 @@ body {
 }
 
 .filters {
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style: none;
-  position: absolute;
+
   right: 0;
   left: 0;
 }
 
 .filters li {
-  display: flex;
-  justify-content: space-evenly;
+  margin-left: 55px;
 }
 
 .clear-comp {
@@ -133,6 +134,20 @@ body {
   border-radius: 3px;
 }
 
+
+.b_clear {
+  color: inherit;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+
+.l2 {
+
+}
 
 
 
