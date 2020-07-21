@@ -179,7 +179,6 @@ function App() {
                     changeItemStatus = {changeItemStatus}
                     deleteItem = {deleteItem}
                     handler = {updateTodos}
-                    setValue = {setTodos}
                 />
 
                 <footer class="footer">
