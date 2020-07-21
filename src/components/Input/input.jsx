@@ -9,7 +9,13 @@ const Input = (props) => {
     const {value, placeHolder, handler, className, autoFocus, readOnly,doubleClick, el} = props;
 
     const _doubleClick = () => {
-        doubleClick(el)
+
+        try {
+            doubleClick(el);
+        }catch (e) {
+            return;
+        }
+
     }
 
     //console.log("com Input");

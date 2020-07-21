@@ -140,7 +140,7 @@ function App() {
     }
 
   return (
-      <section class="todoapp" onKeyDown={handleKeyDown}>
+      <section className="todoapp" onKeyDown={handleKeyDown}>
           <div>
               <header className="head">
                   <h1>Todos</h1>
@@ -151,7 +151,7 @@ function App() {
                           checked={checkAll}
                           onChange = {(check) => changeAllStatus(check)}
                       />
-                      <label for = "toggle-all">
+                      <label htmlFor = "toggle-all">
 
                       </label>
                       <Input
@@ -165,7 +165,7 @@ function App() {
                   </div>
               </header>
 
-              <section class="main">
+              <section className="main">
 
                 <TodoList
                     todoList = {getList()}
@@ -174,7 +174,7 @@ function App() {
                     handler = {updateTodos}
                 />
 
-                <footer class="footer">
+                <footer className="footer">
                       <div>
                           <ul className="filters">
                               <li>
@@ -190,11 +190,12 @@ function App() {
                                       name = {"Completed " + container.current.done}
                                       onClick = {bCompletedOnClick}
                                   />
-                                  <li className="clear-comp">
+
+                                  <div className="clear-comp">
                                       <Button
                                           name = "Clear components"
                                           onClick = {bClear}/>
-                                  </li>
+                                  </div>
 
 
 
