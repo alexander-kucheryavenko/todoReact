@@ -1,11 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './App.css';
-
 import TodoList from "./components/List/todoList";
 import Input from "./components/Input/input";
 import Button from "./components/Button/button";
 import Checkbox from "./components/Checkbox/checkbox";
-
 
 var count = 1; // counter for id items
 
@@ -14,9 +12,6 @@ function App() {
     const [value, setValue] = React.useState('');  // values from input
     const [currentTab, setTabs] = React.useState('All');  // current Tab
     const [checkAll, setCheckAll] = React.useState(false);  // for checkbox (choose all)
-
-    const [readOnly, setReadOnly] = React.useState(true); // for todolist component
-    const [newValue, setNewValue] = React.useState('');  // values from input
 
     const container = useRef({all: 0, active: 0, done: 0});  // for item counter
 
@@ -132,6 +127,7 @@ function App() {
             counter(arr);
     }
 
+    // rename todos
     const updateTodos = (el, value) => {
         console.log('todoList: updateTodos: el = ' + el.name + '@@ value = ' + value);
         const arr = todos.map(element => element.id === el.id ? {...el, name: value} : element);
@@ -143,7 +139,7 @@ function App() {
   return (
       <section className="todoapp" onKeyDown={handleKeyDown}>
           <div>
-              <header className="head">
+               <header className="head">
                   <h1>Todos</h1>
                   <div className="divHead">
                       <Checkbox
@@ -152,8 +148,8 @@ function App() {
                           checked={checkAll}
                           onChange = {(check) => changeAllStatus(check)}
                       />
-                      <label htmlFor = "toggle-all">
-
+                      <label
+                          htmlFor = "toggle-all">
                       </label>
                       <Input
                           className = "new-todo"
@@ -162,18 +158,17 @@ function App() {
                           value = {value}
                           handler={inputItem}
                       />
-
                   </div>
-              </header>
+                </header>
 
-              <section className="main">
-
-                <TodoList
-                    todoList = {getList()}
-                    changeItemStatus = {changeItemStatus}
-                    deleteItem = {deleteItem}
-                    handler = {updateTodos}
-                />
+                <section className="main">
+                    <TodoList
+                        todoList = {getList()}
+                        changeItemStatus = {changeItemStatus}
+                        deleteItem = {deleteItem}
+                        handler = {updateTodos}
+                    />
+                </section>
 
                 <footer className="footer">
                       <div className="div-bottom">
@@ -191,24 +186,18 @@ function App() {
                                       name = {"Completed " + container.current.done}
                                       onClick = {bCompletedOnClick}
                                   />
-
                               </li>
-                                <li className="l2">
-                                    <Button
-                                        className = "b_clear"
-                                        name = "Clear completed"
-                                        onClick = {bClear}
-                                    />
-                                </li>
-
+                              <li className="l2">
+                                <Button
+                                    className = "b_clear"
+                                    name = "Clear completed"
+                                    onClick = {bClear}
+                                />
+                               </li>
                           </ul>
                       </div>
-
-                  </footer>
-
-              </section>
+                </footer>
           </div>
-
       </section>
   )
 }

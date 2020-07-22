@@ -80,13 +80,11 @@
 
 .todo-list li .destroy {
     display: none;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    bottom: 0;
-    width: 40px;
+    width: 3px;
     height: 40px;
-    margin: auto 0;
+    margin-top: 4px;
+    margin-left: 22px;
+    margin-right: 22px;
     font-size: 30px;
     color: #cc9a9a;
     margin-bottom: 11px;
@@ -94,6 +92,7 @@
 }
 .todo-list li .destroy:after {
     content: '×';
+    cursor: pointer;
 }
 
 .todo-li {
@@ -129,7 +128,7 @@
 
 .input-todo-item{
     transition: 200ms;
-    width: 85%;
+    width: 77%;
     padding-left: 10px;
     outline: none;
     border: none;
@@ -137,7 +136,7 @@
 }
 .input-todo-item-edit {
     transition: 200ms;
-    width: 85%;
+    width: 77%;
     padding-left: 10px;
     color: dimgrey;
     outline: 1px solid black;

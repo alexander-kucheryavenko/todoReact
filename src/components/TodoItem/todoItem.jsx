@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 const TodoItem = (props) => {
     const {handler, el} = props;
@@ -35,7 +35,6 @@ const TodoItem = (props) => {
     }
 
     return (
-
         <input
             type="text"
             className={ !readOnly ? 'input-todo-item-edit' : 'input-todo-item'}
@@ -46,7 +45,6 @@ const TodoItem = (props) => {
             onKeyDown={handlerKeyDown}
             onBlur={blurHandler}
         />
-
     )
 }
 

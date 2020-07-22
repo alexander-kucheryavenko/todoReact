@@ -1,24 +1,17 @@
 import React from "react";
 import "../../App.css"
 
-var count = 0;
 const Input = (props) => {
-
-    //проверить работу события oninput()
-
     const {value, placeHolder, handler, className, autoFocus, readOnly,doubleClick, el} = props;
 
     const _doubleClick = () => {
-
         try {
             doubleClick(el);
         }catch (e) {
             return;
         }
-
     }
 
-    //console.log("com Input");
     return (
         <>
             <input
