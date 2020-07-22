@@ -170,19 +170,22 @@ function App() {
                     />
                 </section>
 
-                <footer className="footer">
+                <footer className={todos.length !== 0 ? "footer" : "footerNone"}>
                       <div className="div-bottom">
                           <ul className="filters">
                               <li>
                                   <Button
+                                      className = "button-tab"
                                       name = {"All " + container.current.all}
                                       onClick = {bAllOnClick}
                                   />
                                   <Button
+                                      className = "button-tab"
                                       name = {"Active " + container.current.active}
                                       onClick = {bActiveOnClick}
                                   />
                                   <Button
+                                      className = "button-tab"
                                       name = {"Completed " + container.current.done}
                                       onClick = {bCompletedOnClick}
                                   />
